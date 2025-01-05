@@ -9,7 +9,7 @@ service ProcessorService {
     @readonly
     entity Customers as projection on my.Customers;
 }
-
+annotate ProcessorService.Incidents with @odata.draft.enabled;
 /**
  * Service used by administrators to manage customers and incidents.
  */
