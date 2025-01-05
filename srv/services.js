@@ -9,21 +9,25 @@ class ProcessorService extends cds.ApplicationService {
         return super.init();
     }
 
-    /* Custom Validation */
+    /* Custom Validations */
     async onUpdate(request) {
         request.data;
-        const status_code = request.data.status_code;
-        if (status_code === 'C') {
-            return request.reject('Can not modify closed incident');
+        if (request.data != null && (request.data.status_code != null || request.data.status_code != '')) {
+            const status_code = request.data.status_code;
+            if (status_code === 'C') {
+                return request.reject('Can not modify closed incident');
+            }
         }
+
     }
 
+    /* Change Urgency based on title */
     changeUrgencyDueToSubject(data) {
         if (data) {
             const incidents = Array.isArray(data) ? data : [data];
             incidents.forEach((incident) => {
-                if(incident.title?.toLowerCase().includes("urgent")) {
-                    incident.urgency = { code: "H" , descr: "High"};
+                if (incident.title?.toLowerCase().includes("urgent")) {
+                    incident.urgency = { code: "H", descr: "High" };
                 }
             });
         }
@@ -31,4 +35,4 @@ class ProcessorService extends cds.ApplicationService {
 
 }
 
-module.exports = {ProcessorService}
+module.exports = { ProcessorService }
