@@ -7,7 +7,9 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^8",
-    "express": "^4"
+    "express": "^4",
+    "@cap-js/hana": "^1",
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
@@ -27,17 +29,30 @@
           "kind": "mocked",
           "users": {
             "incident.support@tester.sap.com": {
-              "roles": ["support"]
+              "roles": [
+                "support"
+              ]
             },
             "alice": {
-              "roles": ["support"]
+              "roles": [
+                "support"
+              ]
             },
             "bob": {
-              "roles": ["support"]
+              "roles": [
+                "support"
+              ]
             }
           }
         }
+      },
+      "[production]": {
+        "db": "hana",
+        "auth": "xsuaa"
       }
+    },
+    "sql": {
+      "native_hana_associations": false
     }
   }
 }
