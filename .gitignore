@@ -17,6 +17,8 @@ target/
 *_mta_build_tmp
 *.mtar
 mta_archives/
+dist/
+resources/incidents.zip
 
 # Other
 .DS_Store
