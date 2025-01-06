@@ -49,7 +49,8 @@
       "[production]": {
         "db": "hana",
         "auth": "xsuaa"
-      }
+      },
+      "html5-repo": true
     },
     "sql": {
       "native_hana_associations": false
