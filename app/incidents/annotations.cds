@@ -144,7 +144,7 @@ annotate service.Incidents with {
             ],
         },
         Common.Text : {
-            $value : customer.name,
+            $value : customer.ID,
             ![@UI.TextArrangement] : #TextOnly
         },
         Common.ValueListWithFixedValues : false,
