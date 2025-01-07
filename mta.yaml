@@ -116,7 +116,7 @@ resources:
       service-plan: application
       path: ./xs-security.json
       config:
-        xsappname: incident-management-${org}-${space}
+        xsappname: incident-management-${space}
         tenant-mode: dedicated
   - name: incident-management-destination
     type: org.cloudfoundry.managed-service
